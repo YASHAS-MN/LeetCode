@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int p) {
+        vector<int> lsr;
+        vector<int> eq;
+        vector<int> gtr;
+        vector<int> res;
+
+        for(int i: nums){
+            if(i<p)
+                lsr.push_back(i);
+            else if(i>p)
+                gtr.push_back(i);
+            else
+                eq.push_back(i);
+        }
+
+        res.insert(res.end(), lsr.begin(), lsr.end());
+        res.insert(res.end(), eq.begin(), eq.end());
+        res.insert(res.end(), gtr.begin(), gtr.end());
+
+        return res;
+    }
+};
